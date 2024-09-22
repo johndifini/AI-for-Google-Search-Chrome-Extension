@@ -18,24 +18,14 @@ This Chrome extension intercepts Google searches and sends the query to OpenAI a
    2. Go to https://www.perplexity.ai/settings/api to obtain a Perplexity API key.
    1. Open the `background.js` file.
    1. Replace `'your_openai_api_key_here'` and `'your_perplexity_api_key_here'` with your actual API keys.
-1. Clone this repository or download the source code.
 2. Open Google Chrome and navigate to `chrome://extensions/`.
 3. Enable "Developer mode" in the top right corner.
 4. Click "Load unpacked" and select the directory containing the extension files.
 
-## Configuration
-
-Before using the extension, you need to add your API keys:
-
-1. Open the `background.js` file.
-2. Replace `'your_openai_api_key_here'` with your actual OpenAI API key.
-3. Replace `'your_perplexity_api_key_here'` with your actual Perplexity API key.
-
 ## Usage
 
-1. After installation and configuration, simply perform a Google search as you normally would.
+1. Perform a Google search as you usually would, either from google.com or your Chrome address bar.
 2. The extension will intercept the search, send it to both AI models, and open a new tab with the results.
-3. The results page will display your query, along with responses from both OpenAI and Perplexity.
 
 ## Files
 
@@ -43,7 +33,7 @@ Before using the extension, you need to add your API keys:
 - `background.js`: Handles search interception and API calls
 - `results.html`: Template for displaying results
 - `results.js`: Handles retrieving and displaying results
-- `marked.min.js`: Markdown parsing library
+- `marked.min.js`: Markdown parsing library from https://marked.js.org/
 
 ## Contributing
 

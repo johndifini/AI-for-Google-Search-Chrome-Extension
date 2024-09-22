@@ -10,11 +10,14 @@ This Chrome extension intercepts Google searches and sends the query to OpenAI a
 - Intercepts Google search queries
 - Sends queries to OpenAI (gpt-4o-mini) and Perplexity (llama-3.1-sonar-small-128k-chat)
 - Displays both responses in a new tab
-- Renders Markdown content in the responses
-- Shows the specific model used for each response
 
-## Installation
+## Configuration and Installation
 
+1. Before using the extension, you need to add your OpenAI and Perplexity API keys:
+   1. Go to https://platform.openai.com/api-keys to obtain an OpenAI API key.
+   2. Go to https://www.perplexity.ai/settings/api to obtain a Perplexity API key.
+   1. Open the `background.js` file.
+   1. Replace `'your_openai_api_key_here'` and `'your_perplexity_api_key_here'` with your actual API keys.
 1. Clone this repository or download the source code.
 2. Open Google Chrome and navigate to `chrome://extensions/`.
 3. Enable "Developer mode" in the top right corner.

@@ -1,4 +1,4 @@
-# AI for Google Search Chrome-Extension
+# AI for Google Search Chrome Extension
 Empower your Google searches with AI
 
 ## Overview

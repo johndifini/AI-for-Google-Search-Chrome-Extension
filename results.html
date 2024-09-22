@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <script src="marked.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        h2 {
+            margin-top: 30px;
+        }
+        #query {
+            font-style: italic;
+            color: #7f8c8d;
+        }
+        .result {
+            background-color: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            padding: 15px;
+            margin-top: 10px;
+        }
+        .result p {
+            margin-bottom: 10px;
+        }
+        .result pre {
+            background-color: #e8e8e8;
+            padding: 10px;
+            border-radius: 3px;
+            overflow-x: auto;
+        }
+        .result code {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .model-info {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Search Results</h1>
+    <p>Query: <span id="query"></span></p>
+    
+    <h2>ChatGPT Response</h2>
+    <div class="model-info">Model: <span id="chatgpt-model"></span></div>
+    <div id="chatgpt-result" class="result"></div>
+    
+    <h2>Perplexity Response</h2>
+    <div class="model-info">Model: <span id="perplexity-model"></span></div>
+    <div id="perplexity-result" class="result"></div>
+
+    <script src="results.js"></script>
+</body>
+</html>

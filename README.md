@@ -1,9 +1,9 @@
-# AI-for-Google-Search-Chrome-Extension
+# AI for Google Search Chrome-Extension
 Empower your Google searches with AI
 
 ## Overview
 
-This Chrome extension intercepts Google searches and sends the query to both OpenAI and Perplexity APIs. It then displays the both responses in a new tab.
+This Chrome extension intercepts Google searches and sends the query to OpenAI and Perplexity APIs. It then displays both responses in a new tab. This extension combines the power of Google Autocomplete with the intelligence of AI. It handles Google searches from Chrome's address bar and Google's search page.
 
 ## Features
 

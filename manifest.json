@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Google to ChatGPT and Perplexity API",
+  "name": "Google to AI Search",
   "version": "1.1",
-  "description": "Submits Google queries to ChatGPT and Perplexity APIs and displays results",
+  "description": "Submits Google queries to ChatGPT and Perplexity APIs and displays results with AI-generated images",
   "permissions": [
     "webNavigation",
     "tabs",
@@ -10,7 +10,8 @@
   ],
   "host_permissions": [
     "https://api.openai.com/*",
-    "https://api.perplexity.ai/*"
+    "https://api.perplexity.ai/*",
+    "https://api.replicate.com/*"
   ],
   "background": {
     "service_worker": "background.js"
@@ -19,7 +20,7 @@
     "default_popup": "popup.html"
   },
   "web_accessible_resources": [{
-    "resources": ["results.html", "results.js", "marked.min.js"],
+    "resources": ["results.html", "results.js", "marked.min.js", "styles.css"],
     "matches": ["<all_urls>"]
   }]
 }

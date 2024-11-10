@@ -1,10 +1,29 @@
-const OPENAI_API_KEY = 'your_openai_api_key_here'; // Replace with your actual API key
-const PERPLEXITY_API_KEY = 'your_perplexity_api_key_here'; // Replace with your actual Perplexity API key
+const OPENAI_API_KEY = 'your_openai_api_key_here';
+const PERPLEXITY_API_KEY = 'your_perplexity_api_key_here';
+
+// Keep track of processed URLs to avoid duplicate processing
+const processedUrls = new Set();
+
+// Listen for tab updates to detect back/forward navigation
+chrome.webNavigation.onHistoryStateUpdated.addListener((details) => {
+  // Remove old URLs from the set after some time to prevent memory bloat
+  setTimeout(() => {
+    processedUrls.delete(details.url);
+  }, 300000); // Clear after 5 minutes
+});
 
 chrome.webNavigation.onBeforeNavigate.addListener((details) => {
   if (details.url.startsWith('https://www.google.com/search?q=')) {
-    const query = new URL(details.url).searchParams.get('q');
+    // Check if this URL has already been processed
+    if (processedUrls.has(details.url)) {
+      console.log('URL already processed, skipping:', details.url);
+      return;
+    }
+
+    // Add URL to processed set
+    processedUrls.add(details.url);
     
+    const query = new URL(details.url).searchParams.get('q');
     console.log('Intercepted Google search:', query);
 
     Promise.all([
@@ -39,7 +58,6 @@ chrome.webNavigation.onBeforeNavigate.addListener((details) => {
     });
   }
 }, { url: [{ urlPrefix: 'https://www.google.com/search?q=' }] });
-
 
 function fetchChatGPTResponse(query) {
   return fetch('https://api.openai.com/v1/chat/completions', {
@@ -104,5 +122,12 @@ function fetchPerplexityResponse(query) {
     };
   });
 }
+
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+    if (request.type === 'REPLICATE_ERROR') {
+        console.error('Replicate API error:', request.error);
+    }
+    return true;
+});
 
 console.log('Background script loaded');
